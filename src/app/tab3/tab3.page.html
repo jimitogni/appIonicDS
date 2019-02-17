@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Entrada de dados
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <input #nome (keyup.enter)="addNome(addNome.value)" (blur)="addNome(addNome.value); addNome.value='' ">
+
+  <button (click)="addNome(nome.value)">Add</button>
+
+  <ul><li>{{nome}}</li></ul>
+
+</ion-content>
