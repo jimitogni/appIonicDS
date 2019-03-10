@@ -8,34 +8,53 @@
 
 <ion-content>
 
-  <h4>{{var1}}</h4>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label stacked>Produto</ion-label>
+        <ion-input type="text" value="{{produto.nome}}" [(ngModel)]="produto.nome" formControlName="nome" ></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.nome.valid && (form.controls.nome.dirty || form.controls.nome.touched)" color="danger">
+      <div [hidden]="!form.controls.nome.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
 
-  <h4>{{var2}}</h4>
+    <ion-item>
+      <ion-label stacked>Produto</ion-label>
+        <ion-input required placeholder="Nome do produto" type="text" value="{{produto.modelo}}" [(ngModel)]="produto.modelo" formControlName="modelo" ></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.nome.valid && (form.controls.nome.dirty || form.controls.nome.touched)" color="danger">
+      <div [hidden]="!form.controls.nome.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Nome do produto</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label stacked>Preço</ion-label>
+      <ion-input type="number" value={{produto.preco}} [(ngModel)]="produto.preco" formControlName="preco"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.preco.valid && (form.controls.preco.dirty || form.controls.preco.touched)" color="danger">
+      <div [hidden]="!form.controls.preco.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Fabricante</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label stacked>Preço</ion-label>
+      <ion-input type="number" value={{produto.quantidade}} [(ngModel)]="produto.quantidade" formControlName="quantidade"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.preco.valid && (form.controls.preco.dirty || form.controls.preco.touched)" color="danger">
+      <div [hidden]="!form.controls.preco.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">Modelo</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="stacked">Quantidade</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+    <ion-item>
+    <button ion-button full (click)="salvaProduto()">Salvar</button>
+    </ion-item>
+  </form>
 
 
-<!-- Expand -->
-<ion-button expand="full" (click)="cliqueAqui()">Clique Aqui</ion-button>
-<ion-button expand="full">LIMPAR CAMPOS</ion-button>
 
 
 </ion-content>
