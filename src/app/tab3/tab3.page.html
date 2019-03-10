@@ -1,16 +1,47 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Entrada de dados
+      Ionic FireTodos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <input #nome (keyup.enter)="addNome(addNome.value)" (blur)="addNome(addNome.value); addNome.value='' ">
 
-  <button (click)="addNome(nome.value)">Add</button>
+  <ion-list>
 
-  <ul><li>{{nome}}</li></ul>
+    <ng-container *ngIf="!produtos || produtos.length == 0">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+
+    <ion-item-sliding *ngFor="let item of produtos">
+      <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+        <ion-label>
+          {{ item.nome }}
+          <p>{{ item.modelo}}</p>
+        </ion-label>
+        <ion-note slot="end" color="primary">{{ item.quantidade }}</ion-note>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="remove(item)" color="secondary">
+          Check
+          <ion-icon name="checkmark" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/details" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

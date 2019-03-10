@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewController } from '@ionic/angular';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController } from '@ionic-angular';
+import { NavController, LoadingController } from '@ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Firebase } from '../services/firebase';
+import { Produto, FirebaseService } from '../services/firebase.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,8 +20,7 @@ export class Tab2Page implements OnInit {
 
   produtoId = null;
 
-  constructor(private route: ActivatedRoute, private nav: NavController,
-    private firebaseServer: Firebase, private loadingController: LoadingController) { }
+  constructor(private route: ActivatedRoute, private nav: NavController, private firebaseServer: FirebaseService, private loadingController: LoadingController) { }
 
     ngOnInit() {
       this.produtoId = this.route.snapshot.params['id'];
