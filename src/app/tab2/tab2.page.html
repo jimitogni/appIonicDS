@@ -1,60 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title color="primary">
-      Cadastro de Materiais
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>CADASTRAR PRODUTOS</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <form [formGroup]="form">
+<ion-content padding>
+  <ion-list lines="full">
     <ion-item>
-      <ion-label stacked>Produto</ion-label>
-        <ion-input type="text" value="{{produto.nome}}" [(ngModel)]="produto.nome" formControlName="nome" ></ion-input>
-    </ion-item>
-    <ion-item *ngIf="!form.controls.nome.valid && (form.controls.nome.dirty || form.controls.nome.touched)" color="danger">
-      <div [hidden]="!form.controls.nome.errors.required">
-        O campo é obrigatório
-      </div>
+      <ion-input required type="text" placeholder="Nome" [(ngModel)]="produto.nome"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Produto</ion-label>
-        <ion-input required placeholder="Nome do produto" type="text" value="{{produto.modelo}}" [(ngModel)]="produto.modelo" formControlName="modelo" ></ion-input>
-    </ion-item>
-    <ion-item *ngIf="!form.controls.nome.valid && (form.controls.nome.dirty || form.controls.nome.touched)" color="danger">
-      <div [hidden]="!form.controls.nome.errors.required">
-        O campo é obrigatório
-      </div>
+      <ion-input required type="text" placeholder="Modelo" [(ngModel)]="produto.modelo"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Preço</ion-label>
-      <ion-input type="number" value={{produto.preco}} [(ngModel)]="produto.preco" formControlName="preco"></ion-input>
-    </ion-item>
-    <ion-item *ngIf="!form.controls.preco.valid && (form.controls.preco.dirty || form.controls.preco.touched)" color="danger">
-      <div [hidden]="!form.controls.preco.errors.required">
-        O campo é obrigatório
-      </div>
+      <ion-input required type="number" placeholder="Quantidade" [(ngModel)]="produto.quantidade"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Preço</ion-label>
-      <ion-input type="number" value={{produto.quantidade}} [(ngModel)]="produto.quantidade" formControlName="quantidade"></ion-input>
-    </ion-item>
-    <ion-item *ngIf="!form.controls.preco.valid && (form.controls.preco.dirty || form.controls.preco.touched)" color="danger">
-      <div [hidden]="!form.controls.preco.errors.required">
-        O campo é obrigatório
-      </div>
+      <ion-input required type="number" placeholder="Preço" [(ngModel)]="produto.preco"></ion-input>
     </ion-item>
 
-    <ion-item>
-    <button ion-button full (click)="salvaProduto()">Salvar</button>
-    </ion-item>
-  </form>
-
-
-
-
+  </ion-list>
+  <ion-button expand="full" (click)="salvaProduto()">Save</ion-button>
 </ion-content>

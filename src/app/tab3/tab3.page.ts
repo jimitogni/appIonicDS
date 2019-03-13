@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Produto, FirebaseService } from '../services/firebase.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-tab3',
+  templateUrl: 'tab3.page.html',
+  styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page implements OnInit {
 

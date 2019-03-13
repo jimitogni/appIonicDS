@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-      Ionic FireTodos
+      LISTAGEM DOS PRODUTOS
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,9 +20,9 @@
     </ng-container>
 
     <ion-item-sliding *ngFor="let item of produtos">
-      <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+      <ion-item lines="inset" button [routerLink]="['/tab2', item.id]">
         <ion-label>
-          {{ item.nome }}
+          {{ item.produto }}
           <p>{{ item.modelo}}</p>
         </ion-label>
         <ion-note slot="end" color="primary">{{ item.quantidade }}</ion-note>
@@ -30,7 +30,7 @@
 
       <ion-item-options side="end">
         <ion-item-option (click)="remove(item)" color="secondary">
-          Check
+          Deletar
           <ion-icon name="checkmark" slot="end"></ion-icon>
         </ion-item-option>
       </ion-item-options>
