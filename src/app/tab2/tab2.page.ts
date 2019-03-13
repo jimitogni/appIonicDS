@@ -12,10 +12,10 @@ import { ActivatedRoute } from '@angular/router';
 export class Tab2Page implements OnInit {
 
   produto: Produto = {
-    nome: 'nome do produto',
-    modelo: 'martelo do thor',
-    quantidade: 10 ,
-    preco: 10,
+    nome: '',
+    modelo: '',
+    quantidade: '',
+    preco: '',
   }
 
   produtoId = null;

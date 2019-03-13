@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>
-      LISTAGEM DOS PRODUTOS
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>LISTAGEM PRODUTOS</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -22,16 +23,19 @@
     <ion-item-sliding *ngFor="let item of produtos">
       <ion-item lines="inset" button [routerLink]="['/tab2', item.id]">
         <ion-label>
-          {{ item.produto }}
-          <p>{{ item.modelo}}</p>
+          <h3><b>Produto:</b> {{ item.nome }}</h3>
+          <h5><b>Modelo:</b> {{ item.modelo }}</h5>
+          <h5><b>Quantidade:</b> {{ item.quantidade }}</h5>
+          <h5><b>Preço:</b> {{ item.preco }}</h5>
         </ion-label>
-        <ion-note slot="end" color="primary">{{ item.quantidade }}</ion-note>
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option (click)="remove(item)" color="secondary">
-          Deletar
-          <ion-icon name="checkmark" slot="end"></ion-icon>
+        <ion-item-option (click)="remove(item)" color="primary">
+          <ion-icon name="create" slot="end"></ion-icon>
+        </ion-item-option>
+        <ion-item-option (click)="remove(item)" color="danger">
+          <ion-icon name="trash" slot="end"></ion-icon>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
@@ -39,7 +43,7 @@
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button routerLink="/details" routerDirection="forward">
+    <ion-fab-button routerLink="/tab2" routerDirection="forward">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
