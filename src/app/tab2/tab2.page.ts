@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, LoadingController } from '@ionic-angular';
+import { NavController, LoadingController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Produto, FirebaseService } from '../services/firebase.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,10 +12,10 @@ import { ActivatedRoute } from '@angular/router';
 export class Tab2Page implements OnInit {
 
   produto: Produto = {
-    nome: string,
-    modelo: string,
-    quantidade: number,
-    preco: number,
+    nome: 'nome do produto',
+    modelo: 'martelo do thor',
+    quantidade: 10 ,
+    preco: 10,
   }
 
   produtoId = null;
@@ -30,7 +30,7 @@ export class Tab2Page implements OnInit {
     }
 
 
-    async carregaProduto() {
+    async getTodos() {
       const loading = await this.loadingController.create({
         message: 'Carregando produto..'
       });
@@ -52,12 +52,12 @@ export class Tab2Page implements OnInit {
       if (this.produtoId) {
         this.firebaseServer.update(this.produto, this.produtoId).then(() => {
           loading.dismiss();
-          this.nav.navigateForward('/tab1');
+          this.nav.navigateForward('/tab3');
         });
       } else {
         this.firebaseServer.add(this.produto).then(() => {
           loading.dismiss();
-          this.nav.navigateForward('/tab1');
+          this.nav.navigateForward('/tab3');
         });
       }
     }
