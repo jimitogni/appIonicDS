@@ -14,8 +14,8 @@ export class Tab2Page implements OnInit {
   produto: Produto = {
     nome: '',
     modelo: '',
-    quantidade: '',
-    preco: '',
+    quantidade: null ,
+    preco: null,
   }
 
   produtoId = null;
